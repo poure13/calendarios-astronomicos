@@ -1,9 +1,3 @@
-'''
-https://github.com/fitnr/convertdate
-https://pypi.org/project/pyluach/
-
-'''
-
 import sys
 from convertdate import hebrew
 from convertdate import islamic
