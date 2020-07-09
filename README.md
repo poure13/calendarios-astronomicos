@@ -1,3 +1,5 @@
+![python-version](https://img.shields.io/badge/python-3.8-blue) ![python-mit](https://img.shields.io/badge/license-MIT-green)
+
 # calendarios-astronomicos
 
 Calendarios astronómicos es un conversor de fechas con capacidad de transformar las fechas del calendario gregoriano al calendario judío, al calendario musulmán y a la data juliana. También devuelve la fecha en formato ISO-8061. Forma parte de un TFG del Grado en Matemáticas de la Universidad de Santiago de Compostela.
