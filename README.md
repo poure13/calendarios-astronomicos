@@ -39,7 +39,10 @@ También está disponible un pequeño comando de ayuda:
 $ python calendarios-astronomicos.py help               
 Descripción: 
 
-calendarios-astronomicos es un conversor de fechas con capacidad de transformar las fechas del calendario gregoriano al calendario judío, al calendario musulmán y a la data juliana. También devuelve la fecha en formato ISO-8061.
+calendarios-astronomicos es un conversor de fechas con capacidad de transformar las fechas 
+del calendario gregoriano al calendario judío, al calendario musulmán y a la data juliana. 
+
+También devuelve la fecha en formato ISO-8061.
   
 Argumentos:
 
