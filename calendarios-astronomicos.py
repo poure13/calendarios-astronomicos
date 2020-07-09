@@ -41,23 +41,23 @@ def get_islamic_month(year, month, day):
 
 
 def convert_format(year, month, day):
-    return "Fecha con formato ISO-8601: {}-{}-{}".format(year, month, day)
+    return "Fecha con <strong>formato ISO-8601</strong>: <br>{}-{}-{}<br>".format(year, month, day)
 
 
 def convert_hebrew(year, month, day):
-    return "Fecha en el calendario judío: {0} {1} ({3}) {2}".format(
+    return "Fecha en el <strong>calendario judío</strong>: <br>{0} {1} ({3}) {2}<br>".format(
         *get_hebrew(year, month, day), get_hebrew_month(year, month, day)
     )
 
 
 def convert_islamic(year, month, day):
-    return "Fecha en el calendario musulmán: {0} {1} ({3}) {2}".format(
+    return "Fecha en el <strong>calendario musulmán</strong>: <br>{0} {1} ({3}) {2}<br>".format(
         *get_islamic(year, month, day), get_islamic_month(year, month, day)
     )
 
 
 def convert_julianday(year, month, day):
-    return "Día de la data juliana: {}".format(
+    return "Día de la <strong>data juliana</strong>: <br>{}".format(
         julianday.from_gregorian(year, month, day)
     )
 
@@ -67,7 +67,16 @@ def easy_calendar():
     if request.method == "POST":
         year, month, day = str(request.form["gregorian"]).split("-")
         year, month, day = int(year), int(month), int(day)
-        return '{}<br/>{}<br/>{}<br/>{}<br/><a href="/">Volver</a>'.format(
+        return """<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet"> 
+       <body style="background-color:#ffddd3;color:#522959; font-family: 'Merriweather', serif;">
+        <div style="margin-top: 15%;margin-left: auto;margin-right: auto;width: 45%;border: 1.5px solid #522959;padding: 10px;text-align: center;background-color:white;">
+      <img style="max-width:7%;height:auto;" src="https://openmoji.org/data/color/svg/1F5D3.svg" alt="Calendarios astronomicos">
+      <br><br>
+      {}<br/>{}<br/>{}<br/>{} </br></br><button style="color:#522959;font-family: 'Merriweather', serif;" onclick="location.href='/'" type="button">
+         Volver</button><br></div><div style="margin-top: 10%;margin-left: auto;margin-right: auto;width: 18%;text-align: center;border: 1.5px solid #522959;padding: 10px;text-align: center;background-color:white;">
+        <small>¡Gracias por usar Calendarios Astronómicos!</small>
+      </div>
+      """.format(
             convert_format(year, month, day),
             convert_hebrew(year, month, day),
             convert_islamic(year, month, day),
@@ -76,12 +85,21 @@ def easy_calendar():
 
     else:
         return """
-      <h1>Calendarios astronómicos</h1>
-      <p>Es un conversor de fechas con capacidad de transformar las fechas del calendario gregoriano al calendario judío, al calendario musulmán y a la data juliana. También devuelve la fecha en formato ISO-8061.</p>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet"> 
+       <body style="background-color:#ffddd3;color:#522959; font-family: 'Merriweather', serif;">
+        <div style="margin-top: 15%;margin-left: auto;margin-right: auto;width: 45%;border: 1.5px solid #522959;padding: 10px;text-align: center;background-color:white;">
+      <img style="max-width:7%;height:auto;" src="https://openmoji.org/data/color/svg/1F5D3.svg" alt="Calendarios astronomicos">
+      <h1 style="margin-top: 1%;">Calendarios astronómicos</h1>
+      <p>Es un conversor de fechas con capacidad de transformar las fechas del calendario gregoriano al calendario judío, al calendario musulmán y a la data juliana. <br><br> También devuelve la fecha en formato ISO-8061.</p>
       <form action="/" method="post">
-        <input type="date" id="gregorian" name="gregorian" required>
-        <input type="submit" value="Convertir">
-      </form>"""
+        <input style="color:#522959;font-family: 'Merriweather', serif;" type="date" id="gregorian" name="gregorian" required></br></br>
+        <input style="color:#522959;font-family: 'Merriweather', serif;" type="submit" value="Convertir">
+      </form>
+      </div>
+      <div style="margin-top: 15%;margin-left: auto;margin-right: auto;width: 12%;text-align: center;border: 1.5px solid #522959;padding: 10px;text-align: center;background-color:white;">
+        <small>Paula González Falqué - USC</small>
+      </div>
+      """
 
 
 def run_web():
